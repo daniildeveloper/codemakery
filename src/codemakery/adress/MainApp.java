@@ -1,7 +1,11 @@
 package codemakery.adress;
 
+import codemakery.adress.model.Person;
+import codemakery.adress.view.PersonOverviewController;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -22,6 +26,22 @@ public class MainApp extends Application {
      * Слой с менюшкой на которой прикрепляется adress list
      */
     private BorderPane rootLayout;
+    
+    
+   /**
+    * the data as an observable List of Persons
+    */
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+    
+    /**
+     * Constructor
+     */
+    public MainApp(){
+        //add some sample data
+        personData.add(new Person("Hans", "Muster"));
+        personData.add(new Person("Hans", "Hitler"));        
+    }
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -52,7 +72,7 @@ public class MainApp extends Application {
             primaryStage.setScene(s);
             primaryStage.show();
         } catch(IOException e){
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
     
@@ -68,8 +88,12 @@ public class MainApp extends Application {
             
             //set personOverview into the center of root layout
             rootLayout.setCenter(personOverview);
+            
+            //give the controller access to the main app
+            PersonOverviewController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
     
@@ -78,6 +102,13 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /**
+     * @return the personData
+     */
+    public ObservableList<Person> getPersonData() {
+        return personData;
     }
     
 }
