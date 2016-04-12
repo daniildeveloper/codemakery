@@ -75,7 +75,7 @@ public class PersonOverviewController {
     
     /**
      * Is caled by the main app
-     * @param mainApp 
+     * @param mainApp главное приложение. Точка входа в программу
      */
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;

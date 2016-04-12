@@ -22,7 +22,7 @@ public class Person {
     private StringProperty city;
     
     /**
-     * ObjectProperty<Type> LocalDate is part of new Date and Time API from JDK8
+     * ObjectProperty Type LocalDate is part of new Date and Time API from JDK8
      */
     private ObjectProperty<LocalDate> birthday;
     
@@ -35,8 +35,8 @@ public class Person {
     
     /**
      * Constructor with some initialize Data
-     * @param firstName
-     * @param lastName 
+     * @param firstName имя человека
+     * @param lastName фамилия человека
      */
     
     public Person(String firstName, String lastName) {

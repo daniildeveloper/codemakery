@@ -72,7 +72,7 @@ public class MainApp extends Application {
             primaryStage.setScene(s);
             primaryStage.show();
         } catch(IOException e){
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     
