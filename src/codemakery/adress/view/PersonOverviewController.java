@@ -70,6 +70,12 @@ public class PersonOverviewController {
         //init two person tabes in two columns
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().getFirstName());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().getLastName());
+         // Clear person details.
+    showPersonDetails(null);
+
+    // Listen for selection changes and show the person details when changed.
+    personTable.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -> showPersonDetails(newValue));
         
     }
     
@@ -84,5 +90,19 @@ public class PersonOverviewController {
         personTable.setItems(mainApp.getPersonData());
     }
     
-    
+    private void showPersonDetails(Person person){
+        if(person != null){
+            //fill the labels with info from person object
+            firstnameLabel.setText(person.getFirstName().getValue());
+            lastNameLabel.setText(person.getLastName().getValue());
+        } else {
+            //Person is null, remove text
+            firstnameLabel.setText("");
+            lastNameLabel.setText("");
+            birthDayLabel.setText("");
+            streetLabel.setText("");
+            cityLabel.setText("");
+            postalCodeLabel.setText("");
+        }
+    }   
 }
