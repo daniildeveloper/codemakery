@@ -9,7 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 /**
- *
+ *Картa N 4890****7643 kod 008 остальные реквизиты http://w.qiwi.ru
  * @author Lama
  */
 public class PersonOverviewController {
@@ -95,6 +95,9 @@ public class PersonOverviewController {
             //fill the labels with info from person object
             firstnameLabel.setText(person.getFirstName().getValue());
             lastNameLabel.setText(person.getLastName().getValue());
+            streetLabel.setText(person.getStreet().getValue());
+            birthDayLabel.setText(person.getBirthday().getValue().toString());
+            
         } else {
             //Person is null, remove text
             firstnameLabel.setText("");
